@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*outline: 1px solid red;  Destaca os limites de todos os elementos */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.title-home {
+    text-align: left;
+    font-size: 30px;
+    margin: 10px;
+    font-family: 'Exo 2'
+        /* Especifique a fonte aqui */
+}
+
+.link_principal {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    /*text-transform: uppercase;*/
+    background-color: #191919;
+    color: #ffffff;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    flex-direction: row;
+}
+
+header nav {
+    align-items: center;
+    display: flex;
+}
+
+header h1 {
+    text-align: left;
+    font-size: 20px;
+    margin: 20px;
+}
+
+h1 {
+    text-align: left;
+    font-size: 20px;
+    margin: 20px 30px;
+    font-weight: 800;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0px 10px;
+    font-size: 15px;
+    align-items: center;
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+}
+
+.sub-header {
+    display: block;
+    width: 100%;
+    z-index: 10;
+}
+
+nav a:hover {
+    color: #3e92ccff;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+}
+
+.sub-header nav ul li a:hover {
+    background-color: #3e92ccff;
+    width: 100%;
+}
+
+.sub-header nav {
+    background-color: #222222;
+    color: #fff;
+}
+
+.sub-header nav ul {
+    display: flex;
+    margin-right: 30px;
+    width: auto;
+    justify-content: left;
+    padding: 0%;
+}
+
+.sub-header nav ul li {
+    width: 140px;
+}
+
+.sub-header nav ul li a {
+    display: block;
+    background-color: #222222;
+    color: #fff;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.login-btn {
+    background-color: #3EA745;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: #ffff;
+}
+
+.login-btn:hover {
+    background-color: hsl(124, 46%, 35%);
+    color: #ffff;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.sair-btn {
+    /* background-color: #273226; */
+    padding: 0.4rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: #ffff;
+}
+
+.sair-btn:hover {
+    /* background-color:hsl(115, 14%, 14%); */
+    color: #cccccc;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.user-greeting {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+.drop-menu {
+    position: absolute;
+    display: none;
+    width: 100%;
+}
+
+.drop-menu a {
+    display: block;
+    width: 100%;
+}
+
+.dropdown:hover .drop-menu {
+    display: block;
+}
+
+.rodape {
+    margin-top: auto;
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    flex-shrink: 0;
+    /* Impede que o rodapé "encolha" */
+}
+
+.box-arrow-right {
+    width: 20px;
+    height: 20px;
+}
+
+.content {
+    flex-grow: 1;
+    /* Garante que a área de conteúdo expanda o suficiente */
+}
+
+#mobile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: none;
+    display: none;
+}
+
+#mobile-btn:hover {
+    color: #3e92ccff;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    background-color: none;
+    background: none;
+}
+
+.homepage-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.homepage-card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 0;
+    /* Removido o preenchimento interno para evitar espaçamento excessivo */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 400px;
+    /* Altura do card */
+    width: 500px;
+    /* Largura do card */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Para empilhar a imagem e o texto verticalmente */
+}
+
+.homepage-card:hover {
+    transform: scale(1.05);
+}
+
+
+.homepage-card img {
+    width: 100%;
+    /* A imagem ocupa toda a largura do card */
+    height: 250px;
+    /* Altura fixa para a imagem */
+    object-fit: cover;
+    /* Mantém a proporção e corta a imagem, se necessário */
+    transition: filter 0.5s ease;
+    filter: grayscale(50%);
+}
+
+.homepage-card:hover img {
+    filter: grayscale(0);
+}
+
+.text-container {
+    padding: 15px;
+    /* Adiciona um espaçamento ao redor do texto */
+    flex-grow: 1;
+    /* Faz com que o texto ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    /* Para garantir que o texto seja exibido em coluna */
+    justify-content: first baseline;
+    /* Alinha o conteúdo no topo do contêiner */
+}
+
+.homepage-card h2,
+.homepage-card p {
+    position: relative;
+    /* Garante que o texto esteja acima da imagem */
+    color: #333;
+    /* Cor do texto */
+    text-align: left;
+}
+
+.homepage-card h2 {
+    margin-bottom: 10px;
+    /* Espaçamento abaixo do título */
+    color: #333;
+    /* Cor do texto */
+    font-size: 30px;
+    text-align: left;
+}
+
+.homepage-card a {
+    text-decoration: none;
+}
+
+.homepage-card p {
+    margin: 0;
+    /* Remove a margem padrão do parágrafo */
+    color: #333;
+    /* Cor do texto */
+}
+
+
+.upcoming-events {
+    background-color: #e0e0e0;
+}
+
+.club-highlights {
+    background-color: #d0d0d0;
+}
+
+.player-spotlight {
+    background-color: #c0c0c0;
+}
+
+.tournament-info {
+    background-color: #b0b0b0;
+}
+
+/* Seção de estatísticas */
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 12px;
+}
+
+.stat-item {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #f1f3f5;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #5e6472;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Interesting Section */
+.interesting-section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.interesting-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.interesting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.interesting-item {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+.interesting-item:hover {
+    transform: scale(1.05);
+}
+
+/* Noticias */
+.notices {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 1rem;
+    gap: 20px;
+}
+
+
+/* Estilos para cada item da grade */
+.notices-grade {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 calc(50% - 20px);
+    /* Cada item ocupa 50% menos o espaçamento */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    /* Espaçamento entre as linhas */
+    background-color: #76a076;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    height: 100px;
+    /* Altura do card */
+    width: 100px;
+    /* Largura do card */
+    overflow: hidden;
+    /* Para evitar transbordamento */
+    flex-grow: 1;
+    justify-content: first baseline;
+
+}
+
+.notices-grade:hover {
+    transform: scale(1.02);
+}
+
+.news-item-content {
+    display: flex;
+    flex-direction: column;
+    /* Permite que o texto ocupe várias linhas */
+    justify-content: center;
+    /* Centraliza verticalmente */
+    align-items: flex-start;
+    /* Alinha à esquerda, se necessário */
+    overflow: hidden;
+    /* Para evitar transbordamento */
+    height: 100px;
+    /* Altura fixa do contêiner */
+}
+
+/* Estilos para o conteúdo */
+.news-item-content a {
+    text-align: left;
+    font-size: 1.8rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    display: block;
+    width: 100%;
+    /* Garante que ocupe toda a largura disponível */
+    white-space: normal;
+    /* Permite quebra de linha */
+    overflow: hidden;
+    /* Esconde o texto que transborda */
+
+}
+
+
+/* Estilos para a imagem */
+.news-item-image {
+    flex-shrink: 0;
+    margin-left: 15px;
+    /* Espaçamento entre o texto e a imagem */
+}
+
+.notices-grade .new-item-image img {
+    display: block;
+    margin-left: auto;
+    /* Garante que a imagem fique à direita */
+    object-fit: cover;
+    border-radius: 4px;
+    height: 100px;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}

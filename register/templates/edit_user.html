@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Usuário{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Editar Usuário</h1>
+
+<form action="{{ url_for('register.update_user', id=user[0]) }}" method="POST" id="edit-userForm">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" value="{{user[1]}}">
+  <br>
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" placeholder="Nova Senha">
+  <br>
+  <input class="button-att" type="submit" value="Atualizar">
+</form>
+<div class="button-container">
+  <a href="{{ url_for('register.list_users') }}" class="back-button">Cancelar</a>
+</div>
+{% endblock %}

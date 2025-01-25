@@ -1,0 +1,122 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+
+{% block title %} Página Inicial {% endblock %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="homepage-grid">
+    <div class="homepage-card">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='assets/cxa.png') }}" alt="Foto">
+        </div>
+        <div class="text-container">
+            <a href="">
+                <h2>Card I</h2>
+            </a>
+            <p> Texto</p>
+        </div>
+    </div>
+
+    <div class="homepage-card">
+        <div class="image-container">
+            <img src="" alt="Foto">
+        </div>
+        <div class="text-container">
+            <a href="">
+                <h2>Card II</h2>
+            </a>
+            <p>Texto</p>
+        </div>
+    </div>
+
+    <div class="homepage-card">
+        <div class="image-container">
+            <img src="" alt="Foto">
+        </div>
+        <div class="text-container">
+            <a href="">
+                <h2>Card III</h2>
+            </a>
+            <p>Texto</p>
+        </div>
+    </div>
+
+    <div class="homepage-card">
+        <div class="image-container">
+            <img src="" alt="Foto">
+        </div>
+        <div class="text-container">
+            <a href="">
+                <h2>Card IV</h2>
+            </a>
+            <p>Texto</p>
+        </div>
+    </div>
+</div>
+
+
+<section class="notices">
+    <div class="notices-grade">
+        <div class="news-item-content">
+            <a href="">Notices I</a>
+        </div>
+        <div class="news-item-image">
+            <div class="new-item-image">
+                <img alt="Foto" src="">
+            </div>
+        </div>
+    </div>
+
+    <div class="notices-grade">
+        <div class="news-item-content">
+            <a href="">Notices II</a>
+        </div>
+        <div class="news-item-image">
+            <div class="new-item-image">
+                <img alt="Foto" src="">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Seção de Estatísticas -->
+<section class="stats-section">
+    <div class="stat-item">
+        <div class="stat-number">{{ total_jogadores }}</div>
+        <div class="stat-label">Jogadores Ativos</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">{{ total_clubes }}</div>
+        <div class="stat-label">Clubes ativos</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">{{ total_partidas }}</div>
+        <div class="stat-label">Total de Partidas</div>
+    </div>
+</section>
+
+<section class="interesting-section">
+    <h2>Conheça o Projeto Xadrez na Escola</h2>
+    <div class="interesting-grid">
+        <div class="interesting-item">
+            <h3>Sobre o ChessClub</h3>
+            <p>Como surgiu o Projeto ChessClub.</p>
+        </div>
+        <div class="interesting-item">
+            <h3>Projeto Xadrez na Escola</h3>
+            <p>Um projeto para aprender, crescer e se divertir com xadrez.</p>
+        </div>
+        <div class="interesting-item">
+            <h3>Torneios</h3>
+            <p>Competições mensais que desafiam e motivam nossos jogadores.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Clubes {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Adicionar Clube</h1>
+
+<form method="POST" action="{{ url_for('clubs.add_club') }}" id="clubForm">
+    <div class="form-group">
+        <label for="nome">Nome do Clube:</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="data_criacao">Data de Criação:</label>
+        <input type="date" id="data_criacao" name="data_criacao" required>
+        <br>
+    </div>
+    {% if current_user.is_authenticated %}
+    <button class="button-att" type="submit">Adicionar</button>
+    {% else %}
+    <a href="{{ url_for('login.login') }}" class="button-login">Login</a>
+    {% endif %}
+</form>
+<div class="button-container">
+    <a href="{{ url_for('clubs.index') }}" class="back-button">Cancelar</a>
+</div>
+<!-- Referenciar o arquivo JavaScript externo -->
+<script>
+    var checkClubURL = "{{ url_for('clubs.check_club') }}";
+</script>
+
+<script src="{{ url_for('static', filename='js/clubs.js') }}"></script>
+{% endblock %}
+
+<!--action, usa a função url_for() para gerar a URL correta para a rota 'add_club' -->
+
+<!--Método POST, usado para enviar dados do navegador para o servidor-->
+
+<!--form, cria formuláros-->
+
+<!--button, cria Botão-->
+
+<!--id=, define um id único para o campo-->
+
+<!--<label for="nome">Nome do Clube:</label>
+Essa linha cria uma etiqueta com o texto "Nome do Clube:" e a associa ao campo de entrada com o id "nome".-->
+
+<!--Quando o usuário preenche o campo de entrada e envia o formulário, 
+o valor inserido será enviado para o servidor com o nome "nome", que pode ser acessado e processado no lado do servidor.-->

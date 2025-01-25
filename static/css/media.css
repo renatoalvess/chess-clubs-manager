@@ -1,0 +1,347 @@
+@media (max-width: 768px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /*outline: 1px solid red;  Destaca os limites de todos os elementos */
+    }
+
+    .content {
+        flex: 1;
+        /* Faz o conteúdo ocupar espaço flexível */
+        margin-bottom: 0;
+        padding: 10px;
+        padding-bottom: 60px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+
+    option {
+        font-size: 12px;
+    }
+
+    header nav a {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .sub-header {
+        z-index: 1 !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sub-header nav ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sub-header nav ul li a {
+        font-size: 11px !important;
+        text-align: center;
+        margin: 0;
+
+    }
+
+
+
+    .rodape {
+        position: fixed;
+        /* Fixe o rodapé na parte inferior da tela */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 12px;
+        padding: 10px;
+        margin: auto;
+        z-index: 0;
+        text-align: center;
+    }
+
+
+    .bi-pencil,
+    .bi-trash3-fill {
+        width: 11px;
+        height: 11px;
+    }
+
+    a.button-edit,
+    a.button_del {
+        width: 15px;
+        height: 15px;
+    }
+
+    table,
+    .fixed-width-listmatches,
+    .fixed-width-player {
+        margin: auto;
+        font-size: 11px;
+        border-collapse: collapse;
+        display: block;
+        overflow-x: auto;
+        /* Adiciona rolagem horizontal para tabelas largas */
+        white-space: nowrap;
+
+    }
+
+
+    .ranking-container,
+    .fixed-width-listmatches,
+    .fixed-width-player {
+        overflow-y: auto;
+        /* Barra de rolagem apenas vertical */
+        margin-bottom: 30px;
+        margin: auto;
+        width: fit-content;
+        /*Ajuste o contêiner para caber na largura do conteúdo da tabela */
+        max-width: 100%;
+    }
+
+    .ranking-container,
+    .matches-container,
+    .fixed-width-listmatches,
+    .fixed-width-player,
+    .fixed-width-listUsers {
+        max-height: none;
+        /* Remove a altura fixa em telas menores */
+    }
+
+    .fixed-width-player th,
+    .fixed-width-player td {
+        display: none;
+        text-align: center;
+        /* Alinha o texto ao centro */
+        padding: 0;
+        /* Adiciona uma pequena margem/padding ao texto nas células */
+    }
+
+    .fixed-width-player th:first-child,
+    .fixed-width-player td:first-child,
+    .fixed-width-player th:nth-child(2),
+    .fixed-width-player td:nth-child(2),
+    .fixed-width-player th:nth-child(7),
+    .fixed-width-player td:nth-child(7),
+    .fixed-width-player th:nth-child(8),
+    .fixed-width-player td:nth-child(8) {
+        display: table-cell;
+        /* Exibe as colunas específicas */
+
+    }
+
+    h1 {
+        margin: 20px 0px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    #clubForm,
+    #playerForm,
+    #matchform,
+    #formid,
+    #form-edit-club,
+    #form-edit-player,
+    #loginform,
+    #registerForm,
+    #edit-clubForm,
+    #edit-playerForm,
+    #edit-userForm {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    div .form-group-all {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-container a.back-button {
+        display: flex;
+        margin: 0;
+        margin-top: 30px;
+
+    }
+
+    #club {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .h1-ranking {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .dropdown:hover .drop-menu {
+        display: none;
+        z-index: 2;
+    }
+
+    .dropdown .drop-menu.show {
+        display: block;
+        /* Ajuste a posição para relativa em dispositivos móveis */
+    }
+
+    /* Ajuste no botão de menu */
+    /* #mobile-btn {
+        display: flex;
+        margin: 10px;
+        align-items: center; 
+        justify-content: center; 
+    } */
+
+
+    .login-btn {
+        background-color: #3EA745;
+        padding: 0.3rem 0.01rem;
+        border-radius: 5px;
+        font-weight: bolder;
+        color: #ffff;
+        font-size: 12px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .login-btn:hover {
+        background-color: hsl(124, 46%, 35%);
+        color: #ffff;
+        border-radius: 5px;
+        font-weight: bolder;
+    }
+
+    .sair-btn {
+        /* background-color: #273226; */
+        padding: 0.03rem .01rem;
+        border-radius: 5px;
+        font-weight: bolder;
+        color: #ffff;
+        text-align: center;
+        margin-left: 0px;
+        justify-content: center;
+    }
+
+    .sair-btn:hover {
+        /* background-color: hsl(115, 14%, 14%); */
+        color: #f04c4c;
+        border-radius: 5px;
+        font-weight: bolder;
+    }
+
+    nav {
+        position: relative;
+        /* Define o contexto para o posicionamento absoluto */
+    }
+
+    /* .menu-links { */
+    /* display: none; Oculta os links inicialmente */
+    /* flex-direction: column; Alinha os links verticalmente */
+    /* position: absolute; Posiciona o menu sobre outros elementos */
+    /* top: 50px; Distância do topo em relação ao botão */
+    /* left: 50%; Centraliza horizontalmente em relação ao contêiner */
+    /* transform: translateX(-50%); Ajusta para centralizar corretamente */
+    /* padding: 15px; Preenchimento interno do menu */
+    /* z-index: 2; Garante que o menu fique acima de outros elementos */
+    /* background-color: #191919; Cor de fundo do menu */
+    /* border-radius: 3px; Bordas arredondadas */
+    /* } */
+
+    .menu-links a {
+        /* margin-bottom: 10px; Espaçamento entre os links */
+        display: block;
+        /* Cada link ocupa toda a largura disponível */
+        color: white;
+        /* Cor do texto (ajuste conforme necessário) */
+        text-align: center;
+        /* Centraliza o texto dentro dos links */
+        width: 50px;
+        /* margin-bottom: 15px; */
+        justify-content: center;
+        margin-right: 0px;
+    }
+
+    .menu-links .user-greeting {
+        margin-left: 90px;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* Seção de Cards */
+
+    .homepage-grid {
+        flex-direction: column;
+        /* Muda para coluna em telas pequenas */
+        align-items: center;
+        /* Centraliza os itens */
+        flex-wrap: wrap;
+        /* Permite que os cards se movam para a próxima linha */
+        justify-content: center;
+        /* Centraliza os itens na linha */
+        gap: 20px;
+        /* Espaçamento entre os cards */
+    }
+
+    .homepage-card {
+        height: auto;
+        /* Altura automática para cards */
+        width: auto;
+        height: auto;
+        /* Altura automática para cards */
+        flex-direction: column;
+    }
+
+    .homepage-card h2 {
+        font-size: 1rem;
+    }
+
+    /* Seção de Estatísticas */
+
+    .stats-section {
+        flex-direction: column;
+        /* Exibe estatísticas em coluna */
+        align-items: center;
+        /* Centraliza os itens */
+    }
+
+    .stat-item {
+        width: 100%;
+        /* Cada item ocupa toda a largura */
+        border-right: none;
+        /* Remove a borda direita em telas pequenas */
+        margin-bottom: 20px;
+        /* Espaçamento entre os itens */
+    }
+
+    .interesting-grid {
+        grid-template-columns: repeat(1, 1fr);
+        /* Duas colunas em vez de três */
+    }
+
+
+    /* Seção de Notícias */
+
+    .notices-grade {
+        flex: 0 0 calc(100% - 20px);
+        /* Cada item ocupa 100% menos o espaçamento */
+        height: auto;
+        /* Altura automática para cards */
+    }
+
+    .notices a {
+        font-size: 1rem;
+        text-align: left;
+        display: block;
+    }
+
+
+}

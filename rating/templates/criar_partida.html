@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar Partida{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/partida.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Adicionar Partida</h1>
+
+<form action="{{ url_for('rating.criar_partida') }}" onsubmit="return confirm('Registrar a partida?')" method="POST"
+    onsubmit="return validarForm()">
+    <div class="form-group-all">
+        <div>
+            <label>Jogador de Brancas</label>
+            <input type="text" name="jogador1_nome" id="jogador1_nome" placeholder="Pesquisar" required
+                autocomplete="off" oninput="validarJogadores()">
+            <input type="hidden" name="jogador1_id" id="jogador1_id">
+            <p>Rating: <span id="jogador1_rating"></span></p>
+            <br>
+        </div>
+
+        <div>
+            <label>Jogador de Negras</label>
+            <input type="text" name="jogador2_nome" id="jogador2_nome" placeholder="Pesquisar" required
+                autocomplete="off" oninput="validarJogadores()">
+            <input type="hidden" name="jogador2_id" id="jogador2_id">
+            <p>Rating: <span id="jogador2_rating"></span></p>
+            <br>
+        </div>
+
+        <div>
+            <label>Data da Partida</label>
+            <input type="date" name="date" required>
+            <br>
+        </div>
+
+        <div>
+            <br>
+            <label>Resultado</label>
+            <select class="select-res" name="result">
+                <option value="1">1-0</option>
+                <option value="0.5">0.5</option>
+                <option value="0">0-1</option>
+            </select>
+            <br>
+        </div>
+        <br>
+        {% if current_user.is_authenticated %}
+        <button class="registrar-part" type="submit">Registrar Partida</button>
+        {% else %}
+        <a href="{{ url_for('login.login') }}" class="button-login">Login</a>
+        {% endif %}
+
+</form>
+</div>
+<div class="button-container">
+    <a href="{{ url_for('players.index') }}" class="back-button">Voltar para a página inicial</a>
+</div>
+
+<!-- Passar a URL dinamicamente para o arquivo JavaScript -->
+<script>
+    var buscarJogadoresURL = "{{ url_for('rating.buscar_jogadores') }}";
+</script>
+<script src="{{ url_for('static', filename='js/matches.js') }}"></script>
+{% endblock %}

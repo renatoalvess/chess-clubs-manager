@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <h1>{{ message }}</h1>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<form method="post" action="{{ url_for('login.login') }}" id="loginform">
+  <!-- <label for="username">Usuário:</label> -->
+  <input type="text" id="username" name="username" placeholder="Usuário" required>
+
+  <!-- <label for="password">Senha:</label> -->
+  <input type="password" id="password" name="password" placeholder="Senha" required>
+
+  <button type="submit" class="button-login">Entrar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Histórico de Partidas {% endblock %}
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<h1>Histórico de Partidas</h1>
+<table class="fixed-width-listmatches"> <!--cria uma tabela -->
+    <tr> <!-- tr = linha-->
+        <th class="linha--cab no-border">Id</th> <!-- th = célula-->
+        <th class="linha--cab no-border">Brancas</th>
+        <th class="linha--cab fixed-width-matche no-border">Resultado</th>
+        <th class="linha--cab fixed-width-matche no-border">Negras</th>
+        <th class="linha--cab fixed-width-matche no-border">Data</th>
+    </tr>
+    {% for matche in matches %}
+    <tr>
+        <td>{{ matche[0] }}</td>
+        <td>{{ matche[1] }}</td>
+        <td>{{ matche[4] }}</td>
+        <td>{{ matche[2] }}</td>
+        <td>{{ matche[3] }}</td>
+        </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="button-container">
+    <a href="{{ url_for('rating.index') }}" class="back-button">Voltar para a página inicial</a>
+</div>
+{% endblock %}

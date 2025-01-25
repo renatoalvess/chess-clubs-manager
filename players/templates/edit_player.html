@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Jogador{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Editar Jogador</h1>
+<form action="{{ url_for('players.update_player', id=player[0]) }}" method="POST" id="edit-playerForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{player[1]}}">
+    <br>
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input type="date" id="data_nascimento" name="data_nascimento" value="{{ player[2]}}">
+    <br>
+    <label for="sexo">Sexo:</label>
+    <input type="text" id="sexo" name="sexo" value="{{ player[3] }}">
+    <br>
+    <label for="contato">Contato:</label>
+    <input type="text" id="contato" name="contato" value="{{ player[4] }}">
+    <br>
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" value="{{ player[5] }}">
+    <br>
+    <label for="club_id">Clube:</label>
+    <select id="club_id" name="club_id">
+        {% for clube in clubs %}
+        <option value="{{ clube[0] }}" {% if clube[0]==player[6] %} selected {% endif %}>
+            {{ clube[1] }}
+        </option>
+        {% endfor %}
+    </select>
+    <input class="button-att" type="submit" value="Atualizar">
+</form>
+<div class="button-container">
+    <a href="{{ url_for('players.list_players') }}" class="back-button">Cancelar</a>
+</div>
+{% endblock %}

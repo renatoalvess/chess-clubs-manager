@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Adicionar Jogador {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Adicionar Jogador</h1>
+
+<form method="POST" action="{{ url_for('players.add_player') }}" id="playerForm">
+    <div class="form-group">
+        <label for="nome">Nome do Jogador:</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="sexo">Sexo:</label>
+        <input type="text" id="sexo" name="sexo" placeholder="M / F" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="contato">Contato:</label>
+        <input type="text" id="contato" name="contato" placeholder="Telefone" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" placeholder="Inicial 1600" required>
+        <br>
+    </div>
+    <div class="form-group">
+        <label for="club_id">Clube:</label>
+        <select id="club_id" name="club_id">
+            {% for clube in clubs %}
+            <option value="{{ clube[0] }}">{{ clube[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+    </div>
+    {% if current_user.is_authenticated %}
+    <button class="button-att" type="submit">Adicionar</button>
+    {% else %}
+    <a href="{{ url_for('login.login') }} " class="button-login">Login</a>
+    {% endif %}
+
+</form>
+<div class="button-container">
+    <a href="{{ url_for('players.index') }}" class="back-button">Cancelar</a>
+</div>
+<!-- Passar a URL dinamicamente para o arquivo JavaScript -->
+<script>
+    var checkPlayerURL = "{{ url_for('players.check_player') }}";
+</script>
+<script src="{{ url_for('static', filename='js/players.js') }}"></script>
+{% endblock %}

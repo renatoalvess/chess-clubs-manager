@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de jogadores excluidos {% endblock %}
+
+{% block content %}
+<h1>Lista de jogadores excluídos</h1>
+<table class="fixed-width-ex"> <!--cria uma tabela -->
+    <tr> <!-- tr = linha-->
+        <th class="linha--cab no-border">Id</th> <!-- th = célula-->
+        <th class="linha--cab no-border">Nome</th>
+        <th class="linha--cab no-border">Data de Nascimento</th>
+        <th class="linha--cab no-border">Clube</th>
+        <th class="linha--cab no-border fixed-width-ex"></th>
+    </tr>
+    {% for player in players %}
+    <tr>
+        <td>{{ player[0] }}</td>
+        <td>{{ player[1] }}</td>
+        <td>{{ player[2] }}</td>
+        <td>{{ player[3] }}</td>
+        <td>
+            <form action="{{ url_for('players.recover_player', id=player[0]) }}" method="POST">
+                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z" />
+                        <path
+                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466" />
+                    </svg></button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="button-container">
+    <a href="{{ url_for('players.list_players') }}" class="back-button">Voltar para a lista de jogadores</a>
+</div>
+{% endblock %}

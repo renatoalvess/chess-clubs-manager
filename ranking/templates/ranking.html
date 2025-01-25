@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Ranking {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/ranking_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="h1-ranking">Ranking</h1>
+    
+    <form method="GET" action="{{ url_for('ranking.ranking') }}" id="filter-form"> 
+        <!-- <label id="label-rank" for="club">Selecione uma opção:</label> -->
+        <select name="club" id="club" onchange="document.getElementById('filter-form').submit();">
+            <!-- <option value="" disabled selected>Selecione uma opção</option> Placeholder -->
+            <option value="">Geral</option> <!-- Opção para mostrar o ranking geral -->
+            {% for club in clubs %}
+                <option value="{{ club[0] }}" {% if request.args.get('club') == club[0]|string %}selected{% endif %}>
+                    {{ club[1] }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+    
+
+    {% if players %}
+    <div class="ranking-container">
+        <table class="fixed-width-ranking">
+            <tr>
+                <th class="linha--cab no-border">Nº</th>
+                <th class="linha--cab no-border" >Nome</th>
+                <th class="linha--cab no-border fixed-width-ranking" >Rating</th>
+                <th class="linha--cab no-border fixed-width-ranking">Clube</th>
+            </tr>
+            {% for player in players %}
+            <tr>
+                <td>{{ loop.index }}</td>  
+                <td>{{ player[1] }}</td>  
+                <td>{{ player[2] }}</td>  
+                <td>{{ player[3] }}</td>  
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+        <p class="p-table">Nenhum jogador encontrado.</p>
+    {% endif %}
+{% endblock %}

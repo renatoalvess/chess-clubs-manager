@@ -1,0 +1,30 @@
+#filter-form {
+    max-width: 900px;
+    padding: 5px;
+    margin: 10px 25px;
+}
+
+#label-rank {
+    display: block;
+    font-weight: bold;
+}
+
+#club {
+    display: block;
+    padding: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 2px;
+    border: none;
+    background: #3e92ccff;
+}
+
+#club option {
+    background-color: #f8f8f8;
+    color: #222222;
+}
+
+p {
+    margin-left: 10px;
+}
