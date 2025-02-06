@@ -10,39 +10,37 @@ register_blueprint = Blueprint(
 @register_blueprint.route("/register", methods=["GET", "POST"])
 @login_required  # Garante que apenas usuários logados possam acessar
 def register():
-    # Verifica se o usuário logado é o administrador
     if not current_user.is_admin:
-        # flash("Você não tem permissão para acessar esta página.", "error")
+        flash("Você não tem permissão para acessar esta página.", "error")
         # Redireciona para uma página apropriada
         return redirect(url_for("login.login"))
-
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
 
-        # Verifica se o usuário já existe
         conexao = conexao_db()
         cursor = conexao.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
-        user_data = cursor.fetchone()
 
-        if user_data:
-            flash("O usuário já existe.", "error")
-            return redirect(url_for("register.register"))
+        # Verifica se já existe um administrador
+        cursor.execute("SELECT COUNT(*) FROM users")
+        total_users = cursor.fetchone()[0]
 
-        # Criptografa a senha antes de salvar no banco
+        # O primeiro usuário será admin
+        is_admin = True if total_users == 0 else False
+
+        # Criptografa a senha
         hashed_password = generate_password_hash(password)
 
-        # Adiciona o novo usuário no banco de dados
+        # Insere o usuário no banco
         cursor.execute("INSERT INTO users (username, password, is_admin) VALUES (%s, %s, %s)",
-                       # Aqui, `is_admin` pode ser 0 por padrão
-                       (username, hashed_password, 0))
+                       (username, hashed_password, is_admin))
+
         conexao.commit()
         cursor.close()
         conexao.close()
 
         flash("Usuário registrado com sucesso!", "success")
-        return redirect(url_for("register.list_users"))
+        return redirect(url_for("login.login"))
 
     return render_template("register.html")
 

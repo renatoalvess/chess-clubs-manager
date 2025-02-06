@@ -98,3 +98,20 @@ def criar_tabela_users():
 
     cursor.close()
     conexao.close()
+
+
+def criar_tabela_notices():
+    """Conecta ao banco de dados e cria a tabela 'notícias' no banco de dados se não existir."""
+    conexao = conexao_db()
+
+    cursor = conexao.cursor()  # Cursor: executa os comandos da conexão.
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS notices (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    imagem_url VARCHAR(300),
+                    titulo VARCHAR(200) NOT NULL,
+                    conteudo_html TEXT NOT NULL,
+                    data_publicacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+    conexao.commit()
+    cursor.close()
+    conexao.close()

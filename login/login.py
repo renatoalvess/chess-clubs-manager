@@ -9,13 +9,10 @@ login_blueprint = Blueprint('login', __name__, template_folder='templates')
 
 @login_blueprint.route("/login", methods=["GET", "POST"])
 def login():
-    if current_user.is_authenticated:
-        if current_user.is_admin:
-            flash("Você já está logado como administrador.", "info")
-            # return redirect(url_for("register.register"))
-        else:
-            flash(
-                "Para cadastrar ou editar usuários, faça login como administrador.", "info")
+    # Se o admin estiver logado, impede que outro usuário faça login sem antes deslogar
+    if current_user.is_authenticated and current_user.is_admin:
+        # flash("Você já está logado como administrador. Saia antes de entrar com outro usuário.", "info")
+        return redirect(url_for("register.register"))
 
     if request.method == "POST":
         username = request.form["username"]
@@ -32,8 +29,14 @@ def login():
         if user_data and check_password_hash(user_data["password"], password):
             user = User(user_data["id"], user_data["username"],
                         user_data["password"], user_data.get("is_admin", False))
+
+            # Se já houver um usuário logado, ele será deslogado antes do novo login
+            if current_user.is_authenticated:
+                logout_user()
+
             login_user(user)
-            # Redireciona para a página de registro se for admin
+
+            # Se for admin, redireciona para a área de administração
             if user.is_admin:
                 return redirect(url_for("players.index"))
             return redirect(url_for("players.index"))

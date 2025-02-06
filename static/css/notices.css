@@ -1,0 +1,230 @@
+/* Estilos gerais para o tema dark moderno */
+body {
+    
+    background-color: #1a1a1a; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro */
+    
+}
+
+/* Contêiner principal da página */
+/* Contêiner principal da página */
+.noticia-wrapper {
+    display: flex;
+    justify-content: space-between; /* Mantém o conteúdo principal e outras notícias afastados */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Outras Notícias - Fixado à direita da página */
+.all-notices {
+    position: relative; /* Usando sticky para manter na tela enquanto o usuário rola */
+    margin: 40px auto;
+    width: 500px;
+    padding: 20px;
+    background-color: #262626; /* Fundo do container escuro */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    /* max-height: 400px; */
+    /* overflow-y: auto;  */
+    margin-top: 40px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+
+/* Imagem da notícia */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Estilização da lista */
+.all-notices h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.all-notices ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.all-notices li {
+    margin-bottom: 5px;
+}
+
+.all-notices a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 14px;
+}
+
+.all-notices a:hover {
+    color: #007bff;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #525252;
+}
+
+.inicio-not-button {
+    display: block;
+    text-decoration: none;
+    color: #2575fc;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+
+/* Container da notícia */
+.noticia-container {
+    max-width: 1000px; /* Largura maior para o container */
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #262626; /* Fundo do container escuro */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+}
+
+/* Imagem da notícia */
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden; /* Garante que a imagem não ultrapasse o container */
+    border-radius: 12px;
+}
+
+.image-container img {
+    width: 100%; /* Largura total do container */
+    height: 400px; /* Altura fixa */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+.imagem-noticia {
+   width: 100%; /* Largura total do container */
+    height: 400px; /* Altura fixa */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+
+/* Título da notícia */
+.tit-notice {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    font-size: 2.5rem;
+    color: #ffffff; /* Título branco */
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600; /* Peso da fonte mais forte */
+    letter-spacing: -0.5px; /* Espaçamento entre letras ajustado */
+}
+
+/* Data da notícia */
+.data-container {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #b0b0b0; /* Cor mais clara para a data */
+    margin-bottom: 20px;
+    font-weight: 300; /* Peso da fonte mais leve */
+}
+
+/* Conteúdo da notícia */
+.content-container {
+    font-size: 1.1rem;
+    color: #e0e0e0; /* Texto claro */
+    line-height: 1.8;
+    padding: 0 20px; /* Adiciona um espaçamento interno */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+}
+
+.content-container p {
+    margin-bottom: 20px;
+}
+
+.content-container a {
+    color: #64b5f6; /* Azul claro para links */
+    text-decoration: none;
+    font-weight: 500; /* Peso da fonte médio */
+}
+
+.content-container a:hover {
+    text-decoration: underline;
+    color: #42a5f5; /* Azul mais claro no hover */
+}
+
+/* Botão de voltar */
+.back-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button a {
+    padding: 12px 24px;
+    background-color: #64b5f6; /* Azul claro */
+    color: #121212; /* Texto escuro */
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500; /* Peso da fonte médio */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: #42a5f5; /* Azul mais claro no hover */
+    transform: translateY(-2px); /* Efeito de levantar o botão */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .noticia-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .noticia-container {
+        margin: auto 0;
+        margin-bottom: 20px;
+        width: auto;
+    }
+
+    .image-container img {
+        height: 300px; /* Altura menor em telas pequenas */
+        margin: 0;
+    }
+
+    .tit-notice {
+        font-size: 2rem;
+    }
+
+    .content-container {
+        font-size: 1rem;
+       
+    }
+    
+    
+    .imagem-noticia {
+        width: 100%; /* Largura total do container */
+        height: auto; /* Altura fixa */
+        object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+        border-radius: 12px;
+    }
+   
+    .all-notices {
+        margin: auto;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+}

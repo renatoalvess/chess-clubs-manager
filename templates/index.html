@@ -9,80 +9,44 @@
 
 {% block content %}
 
+<!-- Seção de Cards -->
 <div class="homepage-grid">
-    <div class="homepage-card">
-        <div class="image-container">
-            <img src="{{ url_for('static', filename='assets/cxa.png') }}" alt="Foto">
-        </div>
-        <div class="text-container">
-            <a href="">
-                <h2>Card I</h2>
-            </a>
-            <p> Texto</p>
-        </div>
-    </div>
+    {% for noticia in cards_noticias %}
+    <a href="{{ url_for('notices.detalhes_noticia', id=noticia.id) }}" class="homepage-card">
+        <!-- Imagem -->
+        {% if noticia.imagem_url %}
 
-    <div class="homepage-card">
         <div class="image-container">
-            <img src="" alt="Foto">
+            <img src="{{ noticia.imagem_url }}" alt="{{ noticia.titulo }}">
+            <!-- <img src="{{ url_for('static', filename='assets/10.jpg') }}" alt="Foto"> -->
         </div>
-        <div class="text-container">
-            <a href="">
-                <h2>Card II</h2>
-            </a>
-            <p>Texto</p>
-        </div>
-    </div>
+        {% endif %}
 
-    <div class="homepage-card">
-        <div class="image-container">
-            <img src="" alt="Foto">
-        </div>
-        <div class="text-container">
-            <a href="">
-                <h2>Card III</h2>
-            </a>
-            <p>Texto</p>
-        </div>
-    </div>
 
-    <div class="homepage-card">
-        <div class="image-container">
-            <img src="" alt="Foto">
-        </div>
+        <!-- Título -->
         <div class="text-container">
-            <a href="">
-                <h2>Card IV</h2>
-            </a>
-            <p>Texto</p>
+            <h2>{{ noticia.titulo }}</h2>
         </div>
-    </div>
+    </a>
+    {% endfor %}
 </div>
 
-
 <section class="notices">
-    <div class="notices-grade">
-        <div class="news-item-content">
-            <a href="">Notices I</a>
-        </div>
-        <div class="news-item-image">
-            <div class="new-item-image">
-                <img alt="Foto" src="">
+    {% for noticia in notices_noticias %}
+        <div class="notices-grade">
+            <div class="news-item-content">
+                <a href="{{ url_for('notices.detalhes_noticia', id=noticia.id) }}">{{ noticia.titulo }}
+            </div>
+            <div class="news-item-image">
+                {% if noticia.imagem_url %}
+                <div class="new-item-image">
+                    <img src="{{ noticia.imagem_url }}" alt="{{ noticia.titulo }}">
+                </div>
+                {% endif %}
+            </a>
             </div>
         </div>
-    </div>
-
-    <div class="notices-grade">
-        <div class="news-item-content">
-            <a href="">Notices II</a>
-        </div>
-        <div class="news-item-image">
-            <div class="new-item-image">
-                <img alt="Foto" src="">
-            </div>
-        </div>
-    </div>
-
+    {% endfor %}
 </section>
 
 
@@ -103,7 +67,7 @@
 </section>
 
 <section class="interesting-section">
-    <h2>Conheça o Projeto Xadrez na Escola</h2>
+    <h2>Conheça o Projeto</h2>
     <div class="interesting-grid">
         <div class="interesting-item">
             <h3>Sobre o ChessClub</h3>
@@ -111,10 +75,10 @@
         </div>
         <div class="interesting-item">
             <h3>Projeto Xadrez na Escola</h3>
-            <p>Um projeto para aprender, crescer e se divertir com xadrez.</p>
+            <p>Um projeto para aprender e se divertir com xadrez.</p>
         </div>
         <div class="interesting-item">
-            <h3>Torneios</h3>
+            <h3>Projeto Xadrez Lógico</h3>
             <p>Competições mensais que desafiam e motivam nossos jogadores.</p>
         </div>
     </div>

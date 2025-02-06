@@ -8,39 +8,50 @@ import mysql.connector
 clubs_blueprint = Blueprint('clubs', __name__, template_folder='templates')
 
 
-@clubs_blueprint.route("/")  # rota raiz
-def status():
+@clubs_blueprint.route("/")  # Rota raiz
+def index():
     conexao = conexao_db()
-
     cursor = conexao.cursor()
 
     # Consulta para buscar o total de clubes ativos
-    cursor.execute('''SELECT COUNT(*) FROM clubs WHERE status = 'ativo' ''')
+    cursor.execute("SELECT COUNT(*) FROM clubs WHERE status = 'ativo'")
     total_clubes = cursor.fetchone()[0]
 
     # Consulta para buscar o total de jogadores ativos
-    cursor.execute(''' SELECT COUNT(*) FROM players WHERE status = 'Ativo' ''')
+    cursor.execute("SELECT COUNT(*) FROM players WHERE status = 'Ativo'")
     total_jogadores = cursor.fetchone()[0]
 
     # Consulta para buscar o total de partidas
-    cursor.execute(''' SELECT COUNT(*) FROM matches ''')
+    cursor.execute("SELECT COUNT(*) FROM matches")
     total_partidas = cursor.fetchone()[0]
+
+    cursor.execute("SELECT * FROM notices ORDER BY data_publicacao DESC")
+    todas_noticias = [dict(zip([column[0] for column in cursor.description], row)) for row in cursor.fetchall()]
 
     cursor.close()
     conexao.close()
 
-    # Renderizar o template com os valores buscados
-    return render_template('index.html', total_clubes=total_clubes, total_jogadores=total_jogadores, total_partidas=total_partidas)
+    # Define os limites
+    limite_cards = 4
+    limite_notices = 2
 
+    # Separa as notícias para cards e notices usando os limites
+    cards_noticias = todas_noticias[:limite_cards]  # Cards: 4 primeiras notícias
 
-@login_required
-def index():
-    return render_template('index.html', username=current_user.username)
+    # Notices: 2 notícias a partir da 5ª posição (índice 4)
+    notices_noticias = todas_noticias[limite_cards:limite_cards + limite_notices]
 
+    # Renderizar o template com todos os valores buscados
+    return render_template(
+        'index.html',
+        total_clubes=total_clubes,
+        total_jogadores=total_jogadores,
+        total_partidas=total_partidas,
+        cards_noticias=cards_noticias,
+        notices_noticias=notices_noticias,
+        username=current_user.username if current_user.is_authenticated else None
+    )
 
-@clubs_blueprint.route("/index")  # rota index
-def index():
-    return render_template("index.html")
 
 
 # rota add_club/aceita POST e GET. (POST: envia dados p/ servidor e GET: solicitado dados do servidor)

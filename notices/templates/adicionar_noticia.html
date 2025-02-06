@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/base_forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Adicionar Notícia</h1>
+    <form method="POST" action="{{ url_for('notices.adicionar_noticia') }}">
+        <!-- Campo para a URL da imagem -->
+        <div class="form-group">
+            <label for="imagem_url">URL da Imagem</label>
+            <input type="text" class="form-control" id="imagem_url" name="imagem_url">
+        </div>
+
+        <!-- Campo para o título -->
+        <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" maxlength="200" required>
+        </div>
+
+        <!-- Campo para o conteúdo (HTML) -->
+        <div class="form-group">
+            <label for="conteudo_html">Conteúdo (HTML)</label>
+            <textarea class="form-control" id="conteudo_html" name="conteudo_html" rows="10" required></textarea>
+        </div>
+
+        <!-- Botão de envio -->
+        <button class="back-button" type="submit">Adicionar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,153 +1,16 @@
+/* Estilo moderno para a tabela */
 table {
-    width: 100%;
-    margin: 30px 30px;
-    border-collapse: collapse;
-    background-color: #f4f4f4;
-    display: block;
-    font-size: 15px;
-}
-
-table,
-th,
-td {
-    box-sizing: border-box;
-    /* Incluir bordas e preenchimento nas dimensões da célula */
-}
-
-.linha--cab {
-    text-align: center;
-}
-
-table th:first-child,
-table td:first-child {
-    width: 40px;
-    text-align: center;
-}
-
-table th:nth-child(n+3),
-table td:nth-child(n+3) {
-    text-align: center;
-}
-
-table th:nth-child(2),
-table td:nth-child(2) {
-    width: 300px;
-}
-
-/* Tabela clubes*/
-
-.fixed-width-club {
-
-    th:nth-child(3),
-    td:nth-child(3) {
-        width: 200px;
-    }
-}
-
-.fixed-width-club {
-
-    th:nth-child(4),
-    td:nth-child(4) {
-        width: 100px;
-    }
-}
-
-/* Tabela players*/
-
-.fixed-width-player th,
-.fixed-width-player td {
-    text-align: left;
-    /* Alinha o texto ao centro */
-    /* padding: 0.5rem; Adiciona uma pequena margem/padding ao texto nas células  */
-
-
-}
-
-.fixed-width-player {
-
-    th:nth-child(3),
-    td:nth-child(3) {
-        width: 200px;
-    }
-}
-
-.fixed-width-player {
-
-    th:nth-child(4),
-    td:nth-child(4) {
-        width: 50px;
-    }
-}
-
-.fixed-width-player {
-
-    th:nth-child(5),
-    td:nth-child(5) {
-        width: 150px;
-    }
-}
-
-.fixed-width-player {
-
-    th:nth-child(6),
-    td:nth-child(6) {
-        width: 80px;
-    }
-}
-
-.fixed-width-player {
-
-    th:nth-child(7),
-    td:nth-child(7) {
-        width: 300px;
-    }
-}
-
-.fixed-width-player {
-
-    th:nth-child(8),
-    td:nth-child(8) {
-        width: 100px;
-    }
-}
-
-.fixed-width-ex {
-
-    th:nth-child(5),
-    td:nth-child(5) {
-        width: auto;
-    }
-}
-
-/* Tabela ranking*/
-
-
-.fixed-width-ranking {
-
-    th:nth-child(2),
-    td:nth-child(2) {
-        width: 200px;
-    }
-
-    th:nth-child(3),
-    td:nth-child(3) {
-        width: 75px;
-    }
-
-    th:nth-child(4),
-    td:nth-child(4) {
-        width: 300px;
-    }
-}
-
-.ranking-container {
-    max-height: 350px;
-    overflow-y: auto;
-    /* Barra de rolagem apenas vertical */
-    overflow-x: hidden;
-    /* Ocultar barra de rolagem horizontal, se existir */
-    margin-bottom: 30px;
-    /*width: fit-content;  Ajuste o contêiner para caber na largura do conteúdo da tabela */
+    max-width: 100%;
+    margin: 30px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    font-size: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-sizing: border-box; /* Adicione esta linha */
+    margin-left: 30px;
 }
 
 /* Tabela histórico de partidas*/
@@ -178,99 +41,120 @@ table td:nth-child(2) {
     }
 }
 
-/* Tabela lisa de usuários*/
-.fixed-width-listUsers {
-
-    th:nth-child(3),
-    td:nth-child(3) {
-        width: 100px;
-    }
-
-    th:nth-child(2),
-    td:nth-child(2) {
-        width: 200px;
-    }
-}
-
-.matches-container {
-    max-height: 350px;
-    overflow-y: auto;
-    /* Barra de rolagem apenas vertical */
-    overflow-x: hidden;
-    /* Ocultar barra de rolagem horizontal, se existir */
-    /*width: fit-content;  Ajuste o contêiner para caber na largura do conteúdo da tabela */
-}
-
+/* Cabeçalho moderno */
 th {
-    background-color: #222222;
-    color: #fff;
-}
-
-th,
-td {
-    padding: 0px;
-    border: 1px solid #ddd;
+    background-color: #2575fc; /* Azul sólido */
+    color: #ffffff;
+    font-weight: 600;
+    padding: 16px;
     text-align: left;
-    height: 30px;
-    /* Altura da célula */
-    line-height: 30px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-sizing: border-box;
 }
 
-/* Evitar borda para as células com formulários de ações */
-.no-border {
-    border: none;
+/* Células modernas */
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333333;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
+/* Efeito hover nas linhas */
+tr:hover td {
+    background-color: #f8f9fa; /* Cor de fundo suave ao passar o mouse */
+}
+
+/* Primeira coluna (índice) */
+table th:first-child,
+table td:first-child {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #2575fc; /* Azul sólido */
+}
+
+/* Colunas centralizadas */
+table th:nth-child(n+3),
+table td:nth-child(n+3) {
+    text-align: center;
+}
+
+/* Coluna específica para nomes */
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 300px;
+}
+
+/* Botões modernos */
 button {
-    background-color: #4CAF50;
+    background-color: #2575fc; /* Azul sólido */
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 8px 16px;
     cursor: pointer;
-    width: auto;
-    /* Ajustar o tamanho do botão ao conteúdo */
-    border-radius: 3px;
-}
-
-.button-edit {
-    background-color: #3e92ccff;
-    width: auto;
-}
-
-.button-edit:hover {
-    background-color: #3e80cc;
-}
-
-.button_del {
-    background-color: #a04545;
-    width: auto;
-
-}
-
-.button_del:hover {
-    background-color: #a03333;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 117, 252, 0.3);
 }
 
+/* Botão de edição */
+.button-edit {
+    background-color: #4caf50; /* Verde sólido */
+}
+
+.button-edit:hover {
+    background-color: #388e3c; /* Verde mais escuro */
+}
+
+/* Botão de exclusão */
+.button_del {
+    background-color: #e53935; /* Vermelho sólido */
+}
+
+.button_del:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro */
+}
+
+/* Botão de voltar */
 a.back-button {
     display: inline-block;
     margin: 30px;
     text-decoration: none;
     color: #fff;
-    background-color: #333;
-    padding: 10px 15px;
-    border-radius: 3px;
-    font-size: 16x;
-    transition: background-color 0.3s;
+    background-color: #2575fc; /* Azul sólido */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 a.back-button:hover {
-    background-color: #555;
+    background-color: #0661ff; /* Azul sólido */
 }
 
-.p-table {
-    padding: 20px 20px;
+/* Container de tabelas com scroll */
+.ranking-container,
+.matches-container {
+    /* max-height: 350px; */
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+    margin-bottom: 30px;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+}
+
+/* Evitar borda para as células com formulários de ações */
+.no-border {
+    border: none;
 }
