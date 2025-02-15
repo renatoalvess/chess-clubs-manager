@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/notices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="noticia-wrapper">
+    <!-- Conteúdo principal -->
+    <div class="noticia-container">
+        {% if noticia.imagem_url %}
+        <div class="image-container">
+            <img src="{{ noticia.imagem_url }}" alt="{{ noticia.titulo }}">
+        </div>
+        {% endif %}
+
+
+        <h1 class="tit-notice">{{ noticia.titulo }}</h1>
+
+        <div class="data-container">
+            <p>Publicado em: {{ noticia.data_publicacao }}</p>
+        </div>
+
+        <div class="content-container">
+            {{ noticia.conteudo_html | safe }}
+        </div>
+    </div>
+
+    <!-- Lista de outras notícias -->
+    <div class="all-notices">
+        <h2>Ativo pela última vez</h2>
+        <div class="button-container">
+            <a href="{{ url_for('players.index') }}" class="inicio-not-button">Página inicial</a>
+        </div>
+        <ul>
+            {% for n in outras_noticias %}
+            <li>
+                <a href="{{ url_for('notices.detalhes_noticia', id=n.id) }}">{{ n.titulo }}</a>
+                <!-- <p class="news-date">{{ n.data_publicacao }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+{% endblock %}

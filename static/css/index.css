@@ -59,6 +59,16 @@ h1 {
     font-weight: 800;
 }
 
+h3 a {
+    text-decoration: none;
+    color: #222222;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+}
+
 header nav a {
     color: #ffffff;
     text-decoration: none;
@@ -179,12 +189,17 @@ nav a:hover {
     background-color: #222222;
     color: white;
     text-align: center;
-    padding: 15px 15px;
+    padding: 25px 25px;
     position: relative;
     width: 100%;
     font-size: 14px;
     flex-shrink: 0;
     /* Impede que o rodapé "encolha" */
+}
+
+.rod-email {
+    margin-top: 5px;
+    font-size: 11px;
 }
 
 .box-arrow-right {
@@ -240,6 +255,7 @@ nav a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
     /* Para empilhar a imagem e o texto verticalmente */
 }
 
@@ -251,7 +267,7 @@ nav a:hover {
 .homepage-card img {
     width: 100%;
     /* A imagem ocupa toda a largura do card */
-    height: 250px;
+    height: 280px;
     /* Altura fixa para a imagem */
     object-fit: cover;
     /* Mantém a proporção e corta a imagem, se necessário */
@@ -263,6 +279,17 @@ nav a:hover {
     filter: grayscale(0);
 }
 
+.text-container {
+    padding: 15px;
+    /* Adiciona um espaçamento ao redor do texto */
+    flex-grow: 1;
+    /* Faz com que o texto ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    /* Para garantir que o texto seja exibido em coluna */
+    justify-content: first baseline;
+    /* Alinha o conteúdo no topo do contêiner */
+}
 .text-container {
     padding: 15px;
     /* Adiciona um espaçamento ao redor do texto */
@@ -291,6 +318,7 @@ nav a:hover {
     /* Cor do texto */
     font-size: 30px;
     text-align: left;
+    text-decoration: none;
 }
 
 .homepage-card a {
@@ -476,3 +504,4 @@ nav a:hover {
     height: 100px;
     mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
+

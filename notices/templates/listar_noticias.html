@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Noticias {% endblock %}
+
+{% block content %}
+
+<body>
+    <h1>Últimas Notícias</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Data de Publicação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for noticia in noticias %}
+            <tr>
+                <td>{{ noticia.titulo }}</td>
+                <td>{{ noticia.data_publicacao }}</td>
+                <td>
+                    <form action="{{ url_for('notices.deletar_noticia', id=noticia.id) }}" method="POST"
+                        style="display: inline;">
+                        <button type="submit" class="btn-deletar">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

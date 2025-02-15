@@ -27,19 +27,20 @@ form input {
 }
 
 button {
-    background-color: #333;
+    display: inline-block;
+   margin-top: 10px;
+    text-decoration: none;
     color: #fff;
+    background-color: #2575fc;
+    /* Azul sólido */
     padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: background-color 0.3s;
-
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #0661ff;
 }
 
 /* Estilo do link "Voltar" */
@@ -48,11 +49,12 @@ a.back-button {
     margin: 30px;
     text-decoration: none;
     color: #fff;
-    background-color: #333;
-    padding: 10px 15px;
-    border-radius: 3px;
-    font-size: 16x;
-    transition: background-color 0.3s;
+    background-color: #2575fc;
+    /* Azul sólido */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .button-att {
@@ -73,13 +75,13 @@ a.back-button {
 }
 
 a.back-button:hover {
-    background-color: #555;
+    background-color: #0661ff;
+    /* Azul sólido */
 }
 
 select {
     width: 100%;
     margin: auto;
-
     margin-bottom: 20px;
 }
 
@@ -107,7 +109,7 @@ input::placeholder {
 
 .button-login {
     color: #fff;
-    background-color: #0067B8;
+    background-color: #3EA745;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -119,10 +121,16 @@ input::placeholder {
 }
 
 .button-login:hover {
-    background-color: #005291;
+    background-color: hsl(124, 46%, 30%);
     color: #fff;
 }
 
 form .form-group input {
     width: 100%;
+}
+
+.content {
+    flex-grow: 1;
+    /* Garante que a área de conteúdo expanda o suficiente */
+    display: block;
 }

@@ -29,9 +29,10 @@
     }
 
     .sub-header {
-        z-index: 1 !important;
+        z-index: 2 !important;
         margin: 0;
         padding: 0;
+        position: relative;
     }
 
     .sub-header nav ul {
@@ -47,10 +48,8 @@
 
     }
 
-
-
     .rodape {
-        position: fixed;
+        /* position: fixed; */
         /* Fixe o rodapé na parte inferior da tela */
         bottom: 0;
         left: 0;
@@ -75,48 +74,27 @@
         height: 15px;
     }
 
+
+    
+    /* Ajusta a largura da tabela para ocupar 100% da tela */
     table,
-    .fixed-width-listmatches,
-    .fixed-width-player {
-        margin: auto;
-        font-size: 11px;
-        border-collapse: collapse;
-        display: block;
-        overflow-x: auto;
-        /* Adiciona rolagem horizontal para tabelas largas */
-        white-space: nowrap;
-
-    }
-
-
-    .ranking-container,
-    .fixed-width-listmatches,
-    .fixed-width-player {
-        overflow-y: auto;
-        /* Barra de rolagem apenas vertical */
-        margin-bottom: 30px;
-        margin: auto;
-        width: fit-content;
-        /*Ajuste o contêiner para caber na largura do conteúdo da tabela */
-        max-width: 100%;
-    }
-
-    .ranking-container,
-    .matches-container,
-    .fixed-width-listmatches,
     .fixed-width-player,
-    .fixed-width-listUsers {
-        max-height: none;
-        /* Remove a altura fixa em telas menores */
+    .fixed-width-listmatches {
+        display: table;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box; /* Adicione esta linha */
+        white-space: nowrap;
+        font-size: 10px; /* Ajusta o tamanho da fonte no mobile */
+        margin: 0;
+        border-spacing: 0;
+
     }
 
+    /* Garante que apenas as colunas específicas continuem visíveis */
     .fixed-width-player th,
     .fixed-width-player td {
         display: none;
-        text-align: center;
-        /* Alinha o texto ao centro */
-        padding: 0;
-        /* Adiciona uma pequena margem/padding ao texto nas células */
     }
 
     .fixed-width-player th:first-child,
@@ -128,14 +106,36 @@
     .fixed-width-player th:nth-child(8),
     .fixed-width-player td:nth-child(8) {
         display: table-cell;
-        /* Exibe as colunas específicas */
-
     }
 
+    /* Ajusta o alinhamento e evita cortes */
+    th, td {
+        padding: 6px;
+        text-align: center;
+        word-wrap: break-word;
+        
+    }
+
+    /* Garante que o container da tabela não cause overflow */
+    .ranking-container,
+    .matches-container {
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0 5px;
+    }
+
+    /* Evita que colunas importantes fiquem muito largas */
+    .fixed-width-player th:nth-child(2),
+    .fixed-width-player td:nth-child(2) {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
     h1 {
         margin: 20px 0px;
         text-align: left;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #clubForm,
@@ -167,7 +167,8 @@
         display: flex;
         margin: 0;
         margin-top: 30px;
-
+        padding: 10px 20px;
+        font-size: 11px;
     }
 
     #club {

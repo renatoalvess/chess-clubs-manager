@@ -11,18 +11,25 @@
 
 #club {
     display: block;
-    padding: 7px;
-    font-size: 15px;
+    width: 100%;
+    max-width: 400px; /* Define um limite para o tamanho */
+    padding: 10px;
+    font-size: 16px;
     font-weight: 600;
-    color: #ffffff;
-    border-radius: 2px;
+    color: black;
+    border-radius: 8px;
     border: none;
-    background: #3e92ccff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra para profundidade */
+    cursor: pointer;
+    outline: none;
 }
 
+/* Estiliza as opções */
 #club option {
     background-color: #f8f8f8;
     color: #222222;
+    font-weight: 400;
+    padding: 8px;
 }
 
 p {
