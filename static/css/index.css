@@ -59,6 +59,16 @@ h1 {
     font-weight: 800;
 }
 
+h3 a {
+    text-decoration: none;
+    color: #222222;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+}
+
 header nav a {
     color: #ffffff;
     text-decoration: none;

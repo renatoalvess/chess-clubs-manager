@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/notices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="noticia-wrapper">
+    <!-- Conteúdo principal -->
+    <div class="noticia-container">
+        <h1 class="tit-notice">Projeto Xadrez Lógico</h1>
+        <br>
+        <div class="content-container">
+            <img src="https://i.postimg.cc/3wD4QQ3M/XL.png" alt="Foto do Jogador" class="imagem-noticia">
+            <br><br>
+            <h3>Projeto Xadrez Lógico: Desenvolvendo Habilidades Lógicas Através do Tabuleiro.</h3>
+            <br>
+            <p> Projeto de extensão realizado no curso de Análise e Desenvolvimento de Sistemas (UFCA). Visa desenvolver o pensamento lógico através do ensino do xadrez para alunos do ensino fundamental. Para alcançar esse objetivo, o projeto segue várias etapas:</p>
+            <br>
+            <ol>
+                <li>Cursos e Seminários Presenciais: Promoção de cursos e seminários que ensinam os fundamentos do xadrez e estratégias avançadas.</li>
+                <li>Gincanas: Execução de atividades lúdicas como Quebra-Cabeça de Xadrez, Desafio de Estratégia e Desafios Táticos, com o intuito de envolver os alunos e torná-los interessados no jogo.</li>
+                <li>Campeonatos: À medida que os participantes evoluem, são realizados campeonatos para estimular ainda mais o interesse e o envolvimento, além de promover a prática contínua.</li>
+                <li>Desenvolvimento de um sistema para gerenciar todas as atividades relacionadas ao xadrez, e de um livro voltado para os instrutores.</li>
+            </ol>
+            <br>
+            <p>O projeto também busca fomentar valores importantes, tais como responsabilidade, comprometimento, disciplina, cooperação e companheirismo. 
+                Espera-se que ao final do projeto, tanto os alunos quanto os extensionistas envolvidos tenham aprimorado suas habilidades lógicas e desenvolvido 
+                competências sociais e culturais valiosas.</p>
+            
+            </ul>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- Lista de outras notícias -->
+    <div class="all-notices">
+        <h2>Ativo pela última vez</h2>
+        <div class="button-container">
+            <a href="{{ url_for('players.index') }}" class="inicio-not-button">Página inicial</a>
+        </div>
+        <ul>
+            {% for n in outras_noticias %}
+            <li>
+                <a href="{{ url_for('notices.detalhes_noticia', id=n.id) }}">{{ n.titulo }}</a>
+                <!-- <p class="news-date">{{ n.data_publicacao }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

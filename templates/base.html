@@ -80,13 +80,16 @@
                     </div>
                 </li>
                 </li>
+                {% if current_user.is_authenticated and current_user.is_admin %}
                 <li class="dropdown">
                     <a href="#" onclick="toggleMenu('Administrador'); return false;">Administrador</a>
                     <div id="Administrador" class="drop-menu">
                         <a href="{{ url_for('register.register') }}">Cadastrar usuários</a>
                         <a href="{{ url_for('register.list_users') }}">Usuários</a>
                         <a href="{{ url_for('notices.adicionar_noticia') }}">Adicionar Notícia</a>
+                        <a href="{{ url_for('notices.listar_noticias') }}">Listar | Deletar Notícias</a>
                     </div>
+                    {% endif %}
                 </li>
             </ul>
         </nav>
@@ -107,6 +110,7 @@
     <!-- Rodapé -->
     <footer class="rodape">
         <p>&copy; 2025 Gerenciador de Clubes de Xadrez</p>
+        <p>Assaré-CE</p>
         <p class="rod-email">Email: renatoalves1610@gmail.com</p>
     </footer>
 </body>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/notices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="noticia-wrapper">
+    <!-- Conteúdo principal -->
+    <div class="noticia-container">
+        <h1 class="tit-notice">Sobre o ChessClub</h1>
+        <div class="content-container">
+            <p>É uma aplicação desenvolvida durante o Projeto de Extensão <strong>Xadrez Lógico</strong>.</p>
+
+            <h3>Objetivo: O sistema visa organizar o funcionamento dos clubes de xadrez escolares na cidade de Assaré-CE.</h3>
+            <br>
+            <p>Inclui funcionalidades como:</p>
+            <ul>
+                <li>Cadastro de clubes</li>
+                <li>Cadastro de jogadores</li>
+                <li>Cálculos de rating entre jogadores</li>
+                <li>Rankeamentos</li>
+                <li>Sessão de notícias</li>
+            </ul>
+            <br>
+            <p>Desenvolvido utilizando Flask, Python, e outras tecnologias, este projeto foi criado com o intuito de promover a aprendizagem do discente.</p>
+            <br>
+            <p>Para mais detalhes, <a href="">renatoalves1610@gmail.com.</a></p>
+        </div>
+    </div>
+
+
+    <!-- Lista de outras notícias -->
+    <div class="all-notices">
+        <h2>Ativo pela última vez</h2>
+        <div class="button-container">
+            <a href="{{ url_for('players.index') }}" class="inicio-not-button">Página inicial</a>
+        </div>
+        <ul>
+            {% for n in outras_noticias %}
+            <li>
+                <a href="{{ url_for('notices.detalhes_noticia', id=n.id) }}">{{ n.titulo }}</a>
+                <!-- <p class="news-date">{{ n.data_publicacao }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -11,13 +11,13 @@ from register.register import register_blueprint
 from db.db import conexao_db
 from notices.notices import notices_blueprint
 from utils.utils import criar_admin
-from config import admin_username, admin_password  # Defina isso no config.py
+from config import admin_username, admin_password, secret_key  # Defina isso no config.py
 
 
 app = Flask(__name__)
 
 # Configura o Flask-Login
-app.secret_key = '951753852456'
+app.secret_key = (secret_key)
 
 # Inicializa o LoginManager
 init_app(app)

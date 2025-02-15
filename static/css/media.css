@@ -49,7 +49,7 @@
     }
 
     .rodape {
-        position: fixed;
+        /* position: fixed; */
         /* Fixe o rodapé na parte inferior da tela */
         bottom: 0;
         left: 0;
@@ -135,7 +135,7 @@
     h1 {
         margin: 20px 0px;
         text-align: left;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #clubForm,

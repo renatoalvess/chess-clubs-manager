@@ -67,3 +67,46 @@ def detalhes_noticia(id):
         return render_template('detalhes_noticia.html', noticia=noticia, outras_noticias=outras_noticias)
     else:
         return "Notícia não encontrada.", 404
+    
+@notices_blueprint.route("/listar_noticias", methods=["GET"])
+def listar_noticias():
+    conexao = conexao_db()
+    cursor = conexao.cursor(dictionary=True)
+
+    # Buscar as últimas notícias
+    cursor.execute('''SELECT * FROM notices ORDER BY data_publicacao DESC LIMIT 20''')
+    noticias = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    # Renderizar a página com as notícias e a opção de deletar
+    return render_template('listar_noticias.html', noticias=noticias)
+
+@notices_blueprint.route("/noticia/deletar/<int:id>", methods=["POST"])
+def deletar_noticia(id):
+    conexao = conexao_db()
+    cursor = conexao.cursor()
+
+    # Deletar a notícia
+    cursor.execute('''DELETE FROM notices WHERE id = %s''', (id,))
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    # Redirecionar de volta para a lista de notícias após deletar
+    return redirect(url_for('notices.listar_noticias'))
+
+    
+@notices_blueprint.route('/sobre', methods=['GET'])
+def sobre():
+    return render_template('sobre.html')
+
+@notices_blueprint.route('/xadrez_escola', methods=['GET'])
+def xadrez_escola():
+    return render_template('xadrez_na_escola.html')
+
+@notices_blueprint.route('/xadrez_logico', methods=['GET'])
+def xadrez_logico():
+    return render_template('xadrez_logico.html')

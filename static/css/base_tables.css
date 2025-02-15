@@ -75,7 +75,11 @@ table td:first-child {
     width: 40px;
     text-align: center;
     font-weight: bold;
-    color: #2575fc; /* Azul sólido */
+    color: #ffffff; /* Azul sólido */
+}
+
+table td:first-child{
+    color:#0661ff ;
 }
 
 /* Colunas centralizadas */

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/notices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="noticia-wrapper">
+    <!-- Conteúdo principal -->
+    <div class="noticia-container">
+        <h1 class="tit-notice">Projeto Xadrez na Escola</h1>
+        <br>
+        <div class="content-container">
+            <img src="https://i.postimg.cc/YSMtFXyz/33.jpg" alt="Foto do Jogador" class="imagem-noticia">
+            <br><br>
+            <p>O Projeto Xadrez na Escola tem como objetivo promover o desenvolvimento cognitivo e social dos alunos, além de incentivar o pensamento crítico e estratégico. 
+                O xadrez é um jogo milenar que oferece inúmeros benefícios educacionais, 
+                como a melhoria da concentração, memória, criatividade e habilidades de resolução de problemas.</p>
+            <br>
+            <p>O projeto é uma iniciativa da Secretaria Municipal de Educação, que trará inúmeros benefícios para os alunos, 
+                tanto no aspecto educacional quanto no pessoal.</p>
+                <br>
+            <p>Objetivos do Projeto:</p>
+            <ul>
+                <li>Desenvolvimento Cognitivo;</li>
+                <li>Educação Social;</li>
+                <li>Inclusão;</li>
+                <li>Diversão.</li>
+            </ul>
+            <br>
+            <p>Metodologia:</p>
+            <ul>
+                <li>Aulas e treinos;</li>
+                <li>Criar e monitorar clubes escolares;</li>
+                <li>Torneios escolares;</li>
+                <li>Torneios municipais;</li>
+                <li>Alunos monitores.</li>
+            </ul>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- Lista de outras notícias -->
+    <div class="all-notices">
+        <h2>Ativo pela última vez</h2>
+        <div class="button-container">
+            <a href="{{ url_for('players.index') }}" class="inicio-not-button">Página inicial</a>
+        </div>
+        <ul>
+            {% for n in outras_noticias %}
+            <li>
+                <a href="{{ url_for('notices.detalhes_noticia', id=n.id) }}">{{ n.titulo }}</a>
+                <!-- <p class="news-date">{{ n.data_publicacao }}</p> -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

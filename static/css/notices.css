@@ -1,31 +1,38 @@
 /* Estilos gerais para o tema dark moderno */
 body {
-    
-    background-color: #1a1a1a; /* Fundo escuro */
-    color: #e0e0e0; /* Texto claro */
-    
+
+    background-color: #1a1a1a;
+    /* Fundo escuro */
+    color: #e0e0e0;
+    /* Texto claro */
+
 }
 
 /* Contêiner principal da página */
 /* Contêiner principal da página */
 .noticia-wrapper {
     display: flex;
-    justify-content: space-between; /* Mantém o conteúdo principal e outras notícias afastados */
-    max-width: 1200px;
+    justify-content: space-between;
+    /* Mantém o conteúdo principal e outras notícias afastados */
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* Outras Notícias - Fixado à direita da página */
 .all-notices {
-    position: relative; /* Usando sticky para manter na tela enquanto o usuário rola */
+    position: relative;
+    /* Usando sticky para manter na tela enquanto o usuário rola */
     margin: 40px auto;
     width: 500px;
     padding: 20px;
-    background-color: #262626; /* Fundo do container escuro */
+    background-color: #262626;
+    /* Fundo do container escuro */
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna */
     /* max-height: 400px; */
     /* overflow-y: auto;  */
     margin-top: 40px;
@@ -52,11 +59,15 @@ body {
 .all-notices ul {
     list-style: none;
     padding: 0;
-    
+
 }
 
 .all-notices li {
     margin-bottom: 5px;
+}
+
+ul, ol {
+    padding-left: 20px;;
 }
 
 .all-notices a {
@@ -86,67 +97,89 @@ body {
 
 /* Container da notícia */
 .noticia-container {
-    max-width: 1000px; /* Largura maior para o container */
+    max-width: 1000px;
+    /* Largura maior para o container */
     margin: 40px auto;
     padding: 20px;
-    background-color: #262626; /* Fundo do container escuro */
+    background-color: #262626;
+    /* Fundo do container escuro */
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna */
 }
 
 /* Imagem da notícia */
 .image-container {
     text-align: center;
     margin-bottom: 20px;
-    overflow: hidden; /* Garante que a imagem não ultrapasse o container */
+    overflow: hidden;
+    /* Garante que a imagem não ultrapasse o container */
     border-radius: 12px;
 }
 
 .image-container img {
-    width: 100%; /* Largura total do container */
-    height: 400px; /* Altura fixa */
-    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+    width: 100%;
+    /* Largura total do container */
+    height: 400px;
+    /* Altura fixa */
+    object-fit: cover;
+    /* Mantém a proporção da imagem e cobre o espaço */
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa */
 }
 
 .imagem-noticia {
-   width: 100%; /* Largura total do container */
-    height: 400px; /* Altura fixa */
-    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+    width: 100%;
+    /* Largura total do container */
+    height: 500px;
+    /* Altura fixa */
+    object-fit: cover;
+    /* Mantém a proporção da imagem e cobre o espaço */
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa */
 }
 
 
 /* Título da notícia */
 .tit-notice {
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna */
     font-size: 2.5rem;
-    color: #ffffff; /* Título branco */
+    color: #ffffff;
+    /* Título branco */
     margin-bottom: 10px;
     text-align: center;
-    font-weight: 600; /* Peso da fonte mais forte */
-    letter-spacing: -0.5px; /* Espaçamento entre letras ajustado */
+    font-weight: 600;
+    /* Peso da fonte mais forte */
+    letter-spacing: -0.5px;
+    /* Espaçamento entre letras ajustado */
 }
 
 /* Data da notícia */
 .data-container {
     text-align: center;
     font-size: 0.9rem;
-    color: #b0b0b0; /* Cor mais clara para a data */
+    color: #b0b0b0;
+    /* Cor mais clara para a data */
     margin-bottom: 20px;
-    font-weight: 300; /* Peso da fonte mais leve */
+    font-weight: 300;
+    /* Peso da fonte mais leve */
 }
 
 /* Conteúdo da notícia */
 .content-container {
     font-size: 1.1rem;
-    color: #e0e0e0; /* Texto claro */
+    color: #e0e0e0;
+    /* Texto claro */
     line-height: 1.8;
-    padding: 0 20px; /* Adiciona um espaçamento interno */
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    padding: 0 20px;
+    /* Adiciona um espaçamento interno */
+    font-family: 'Poppins', sans-serif;
+    /* Fonte moderna */
 }
 
 .content-container p {
@@ -154,14 +187,17 @@ body {
 }
 
 .content-container a {
-    color: #64b5f6; /* Azul claro para links */
+    color: #64b5f6;
+    /* Azul claro para links */
     text-decoration: none;
-    font-weight: 500; /* Peso da fonte médio */
+    font-weight: 500;
+    /* Peso da fonte médio */
 }
 
 .content-container a:hover {
     text-decoration: underline;
-    color: #42a5f5; /* Azul mais claro no hover */
+    color: #42a5f5;
+    /* Azul mais claro no hover */
 }
 
 /* Botão de voltar */
@@ -172,18 +208,90 @@ body {
 
 .back-button a {
     padding: 12px 24px;
-    background-color: #64b5f6; /* Azul claro */
-    color: #121212; /* Texto escuro */
+    background-color: #64b5f6;
+    /* Azul claro */
+    color: #121212;
+    /* Texto escuro */
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 500; /* Peso da fonte médio */
+    font-weight: 500;
+    /* Peso da fonte médio */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .back-button a:hover {
-    background-color: #42a5f5; /* Azul mais claro no hover */
-    transform: translateY(-2px); /* Efeito de levantar o botão */
+    background-color: #42a5f5;
+    /* Azul mais claro no hover */
+    transform: translateY(-2px);
+    /* Efeito de levantar o botão */
 }
+
+/* Estilos específicos para a tabela dentro da notícia */
+.noticia-container .tabela-estatisticas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background-color: #333;
+    /* Fundo escuro para combinar com o tema */
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+.noticia-container .tabela-estatisticas th,
+.noticia-container .tabela-estatisticas td {
+    border: 0px;
+    /* Bordas mais suaves */
+    padding: 8px;
+    text-align: center;
+}
+
+.noticia-container .tabela-estatisticas th {
+    background-color: #2675FC;
+    /* Azul claro para o cabeçalho */
+    color: #e0e0e0;
+    /* Texto escuro no cabeçalho */
+}
+
+.noticia-container .tabela-estatisticas td {
+    color: #e0e0e0;
+    /* Texto claro nas células */
+}
+
+.noticia-container .tabela-estatisticas tr:hover td {
+    background-color: #3b3b3b;
+}
+
+/* Remover estilos herdados */
+.noticia-container .tabela-estatisticas th:first-child,
+.noticia-container .tabela-estatisticas td:first-child {
+    width: auto;
+    /* Remover largura fixa */
+    text-align: center;
+    /* Centralizar texto */
+    font-weight: normal;
+    /* Remover negrito */
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+.noticia-container .tabela-estatisticas td:first-child {
+    color: #e0e0e0;
+    /* Texto claro */
+}
+
+.noticia-container .tabela-estatisticas th:nth-child(n+3),
+.noticia-container .tabela-estatisticas td:nth-child(n+3) {
+    text-align: center;
+    /* Centralizar texto */
+}
+
+.noticia-container .tabela-estatisticas th:nth-child(2),
+.noticia-container .tabela-estatisticas td:nth-child(2) {
+    width: auto;
+    /* Remover largura fixa */
+}
+
+
 
 
 /* Responsividade */
@@ -200,31 +308,76 @@ body {
     }
 
     .image-container img {
-        height: 300px; /* Altura menor em telas pequenas */
+        height: 300px;
+        /* Altura menor em telas pequenas */
         margin: 0;
     }
 
     .tit-notice {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .content-container {
         font-size: 1rem;
-       
+
     }
-    
-    
+
+
     .imagem-noticia {
-        width: 100%; /* Largura total do container */
-        height: auto; /* Altura fixa */
-        object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+        width: 100%;
+        /* Largura total do container */
+        height: auto;
+        /* Altura fixa */
+        object-fit: cover;
+        /* Mantém a proporção da imagem e cobre o espaço */
         border-radius: 12px;
     }
-   
+
     .all-notices {
         margin: auto;
         margin-bottom: 20px;
         width: 100%;
     }
 
+
+
+    /* Citação estilizada */
+    .citacao {
+        font-style: italic;
+        background: #333;
+        padding: 15px;
+        border-left: 5px solid #64b5f6;
+        margin: 20px 0;
+        color: #ddd;
+    }
+
+    .citacao span {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #bbb;
+    }
+
+    /* Estilo para vídeos responsivos */
+    .video {
+        width: 100%;
+        height: 315px;
+        margin-top: 15px;
+        border-radius: 8px;
+    }
+
+    .tabela-estatisticas td,
+    .tabela-estatisticas th {
+        padding: 6px;
+    }
+
+    .video {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video {
+        height: 200px;
+    }
 }
