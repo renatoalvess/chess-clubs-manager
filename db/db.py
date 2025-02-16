@@ -1,44 +1,62 @@
 import mysql.connector
 from config import db_password
-
+import os
 
 
 def conexao_db():
-    return mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password=db_password,
-        database='bdchess'
-    )
+    try:
+        bdchess = mysql.connector.connect(
+            host="mysql",
+            user="root",
+            password=os.environ.get("MYSQL_ROOT_PASSWORD"),
+            database=os.environ.get("MYSQL_DATABASE")
+        )
+        print("Conexão com o banco de dados estabelecida.")  # Mensagem de sucesso
+        return bdchess
+    except mysql.connector.Error as err:
+        print(f"Erro na conexão: {err}")  # Imprime o erro *completo*
+        return None
+
 
 
 def criar_database():
     """Conecta e cria a base de dados."""
     conexao = conexao_db()
-    cursor = conexao.cursor()
 
-    cursor.execute("CREATE DATABASE IF NOT EXISTS bdchess")
-    conexao.commit()
+    if conexao:  # <--- Verifica se a conexão NÃO é None
+        cursor = conexao.cursor()
+        try: # tratamento de erro na criação do banco de dados
+            cursor.execute("CREATE DATABASE IF NOT EXISTS bdchess")
+            conexao.commit()
+            print("Banco de dados criado ou existente.")
+        except mysql.connector.Error as err:
+            print(f"Erro na criação do banco de dados: {err}")
+            conexao.rollback() # desfaz as alterações em caso de erro
 
-    cursor.close()
-    conexao.close()
+        cursor.close()
+        conexao.close()
+    else:
+        print("Falha ao conectar ao banco de dados. Impossível criar o banco.")
 
 
 def criar_tabela_clubes():
     """Conecta ao banco de dados e cria a tabela 'clubs' no banco de dados se não existir."""
     conexao = conexao_db()
 
-    cursor = conexao.cursor()  # Cursor: executa os comandos da conexão.
+    if conexao:
+        cursor = conexao.cursor()  # Cursor: executa os comandos da conexão.
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS clubs (
-                   id INT PRIMARY KEY AUTO_INCREMENT,
-                   name VARCHAR(255) NOT NULL UNIQUE,
-                   creation_date DATE NOT NULL,
-                   status ENUM('Ativo', 'Excluído') DEFAULT 'Ativo')''')
-    conexao.commit()
+        cursor.execute('''CREATE TABLE IF NOT EXISTS clubs (
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL UNIQUE,
+                    creation_date DATE NOT NULL,
+                    status ENUM('Ativo', 'Excluído') DEFAULT 'Ativo')''')
+        conexao.commit()
 
-    cursor.close()
-    conexao.close()
+        cursor.close()
+        conexao.close()
+    else:
+        print("Falha ao conectar ao banco de dados. Impossível criar o banco.")
 
 
 def criar_tabela_players():

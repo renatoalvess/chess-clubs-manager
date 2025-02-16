@@ -12,6 +12,8 @@ from db.db import conexao_db
 from notices.notices import notices_blueprint
 from utils.utils import criar_admin
 from config import admin_username, admin_password, secret_key  # Defina isso no config.py
+import os
+import time
 
 
 app = Flask(__name__)
@@ -32,6 +34,8 @@ app.register_blueprint(notices_blueprint)
 
 if __name__ == '__main__':
     criar_database()
+    time.sleep(2)
+    conexao_db()
     criar_tabela_clubes()
     criar_tabela_players()
     criar_tabela_matches()
@@ -39,4 +43,4 @@ if __name__ == '__main__':
     criar_tabela_users()
     criar_tabela_notices()
     criar_admin(admin_username, admin_password)
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

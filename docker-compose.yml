@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+    environment:  # <--- Use 'environment' em vez de 'env_file' para o MySQL
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE} # <--- Definir o banco de dados aqui também
+    # env_file: # <--- REMOVA esta linha do serviço mysql
+    restart: always # <--- Reinicia o container automaticamente em caso de falha.
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    env_file:
+      .env  # <--- Use 'env_file' para o Flask
+    restart: always # <--- Reinicia o container automaticamente em caso de falha.
+
+volumes:
+  mysql-data:
